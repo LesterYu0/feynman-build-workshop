@@ -2,7 +2,7 @@
 
 > **7步设计Agent记忆系统：从LLM先天失忆到生产级上下文管理**
 
-📺 [B站视频]() | ⏱ 17:41 | 📅 2026-06-08
+📺 [B站视频](https://www.bilibili.com/video/BV1uiEM6xE9s/) | ⏱ 17:41 | 📅 2026-06-08
 
 ---
 
@@ -87,6 +87,6 @@ results = mm.search("dark mode")
 
 ## 社区
 
-- 有问题？去 [B站视频评论区]() 聊
+- 有问题？去 [B站视频评论区](https://www.bilibili.com/video/BV1uiEM6xE9s/) 聊
 - 改进了代码？欢迎提 [PR](../../CONTRIBUTING.md)
 - 踩了坑想分享？Issues 区见
