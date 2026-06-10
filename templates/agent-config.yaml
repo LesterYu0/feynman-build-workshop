@@ -1,0 +1,69 @@
+# Agent 通用配置模板
+
+# ---------------------------------------------------------------------------
+# 用法：复制到你的项目，改值，别删注释
+# 接入代码骨架时直接把 memory 段粘过去
+# ---------------------------------------------------------------------------
+
+# ── 记忆系统 ──────────────────────────────────────────────────────────────
+memory:
+  # 数据库路径（SQLite）
+  db_path: "/data/agent/memory.db"
+  
+  # 自动归纳：每天凌晨 2 点把当天日志压缩为结构化记忆
+  auto_summarize:
+    enabled: true
+    cron: "0 2 * * *"
+    max_daily_entries: 1000   # 超过此数触发紧急压缩
+    summary_prompt: |
+      请将以下 Agent 交互日志归纳为 3-5 条结构化记忆。
+      每条记忆包含：{id, type[user_preference|bug_fix|decision|context], 
+      content, confidence[0-1], ttl_days}
+  
+  # Frozen Snapshot：锁定稳定的核心记忆，防前缀缓存失效
+  frozen_snapshot:
+    enabled: true
+    inactivity_days: 3         # 3 天未变动的记忆自动冻结
+    max_frozen_entries: 50     # 冻结区容量上限
+    priority_types:            # 优先冻结的记忆类型
+      - user_preference
+      - system_config
+  
+  # 时效管理
+  ttl:
+    default_days: 7            # 默认记忆存活天数
+    type_overrides:            # 按类型覆盖
+      user_preference: 90      # 用户偏好长期保留
+      bug_fix: 60              # bug 修复记录保留 2 个月
+      decision_context: 14     # 决策上下文保留 2 周
+      tool_output: 1           # 工具输出只保留 1 天
+  
+  # 全文搜索
+  fts5:
+    enabled: true
+    tokenize: "unicode61"      # 索引分词策略
+    rank_weights:              # 搜索结果排序权重
+      recency: 0.4             # 时间新鲜度
+      frequency: 0.3           # 记忆被引用频率
+      confidence: 0.3          # 记忆置信度
+
+# ── Agent 行为 ─────────────────────────────────────────────────────────────
+agent:
+  name: "my_agent"
+  max_turns: 50               # 单次对话最大轮数
+  temperature: 0.3             # 记忆相关操作建议低温
+  
+  # 错误降级策略
+  fallback:
+    memory_not_found: "admit"  # admit | guess | skip — 找不到记忆时：承认/猜测/跳过
+    search_timeout_ms: 5000    # 搜索超时（毫秒）
+
+# ── 监控 ───────────────────────────────────────────────────────────────────
+monitoring:
+  metrics:
+    - name: "memory_hit_rate"
+      threshold: 0.7           # 记忆命中率低于 70% 告警
+    - name: "prefix_cache_hit_rate"
+      threshold: 0.8           # 前缀缓存命中率低于 80% 告警
+    - name: "avg_search_latency_ms"
+      threshold: 200           # 平均搜索延迟高于 200ms 告警
