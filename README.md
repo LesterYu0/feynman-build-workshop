@@ -11,6 +11,7 @@
 | # | 主题 | 资产数 | 视频 | 发布日期 |
 |---|------|:---:|------|:---:|
 | 01 | [Agent 记忆系统](./episodes/01-agent-memory-system/) | 4 份 | [B站](https://www.bilibili.com/video/BV1uiEM6xE9s/) | 2026-06-08 |
+| 02 | [意图识别：从 if-else 到生产级](./episodes/02-intent-recognition/) | 4 份 | [B站](https://www.bilibili.com/video/BV1xx411c7mD/) | 2026-06-11 |
 
 ---
 
