@@ -12,6 +12,7 @@
 |---|------|:---:|------|:---:|
 | 01 | [Agent 记忆系统](./episodes/01-agent-memory-system/) | 4 份 | [B站](https://www.bilibili.com/video/BV1uiEM6xE9s/) | 2026-06-08 |
 | 02 | [意图识别：从 if-else 到生产级](./episodes/02-intent-recognition/) | 4 份 | [B站](https://www.bilibili.com/video/BV1xx411c7mD/) | 2026-06-11 |
+| 03 | [7层 Pipeline 打通多源文档解析](./episodes/03-doc-parse-pipeline/) | 4 份 | [B站](https://www.bilibili.com/video/BV1xx411c7mD/) | 2026-06-12 |
 
 ---
 
