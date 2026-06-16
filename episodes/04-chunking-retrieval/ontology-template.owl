@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  C04 本体模板 (OWL/Turtle 格式)
+  用于约束 RAG 管线的三个位置：切分边界、提取 Schema、检索优化
+
+  使用方法：
+  1. 根据业务领域修改下面的类和属性
+  2. 在 GraphRAG 提取时加载此 Schema，只提取合规实体
+  3. 在切分时按 owl:Class 边界切分，避免语义断裂
+  4. 在 OG-RAG 检索时用超图覆盖算法选 chunk
+
+  参考：OG-RAG (Ontology-Grounded RAG), ISWC 2024
+-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:ex="http://feynman-ai.example/ontology/chunking#">
+
+  <!-- ========== Ontology Header ========== -->
+  <owl:Ontology rdf:about="http://feynman-ai.example/ontology/chunking">
+    <rdfs:label>费曼学AI - 文件切分与召回本体</rdfs:label>
+    <rdfs:comment>
+      定义 RAG 管线中的核心实体和关系，用于：
+      1. 约束切分边界（按类边界切）
+      2. 约束 LLM 提取（只提取 Schema 内实体）
+      3. 约束检索（超图覆盖优化）
+    </rdfs:comment>
+    <owl:versionIRI rdf:resource="http://feynman-ai.example/ontology/chunking/1.0"/>
+  </owl:Ontology>
+
+  <!-- ========== Core Classes ========== -->
+
+  <!-- 文档层 -->
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#Document">
+    <rdfs:label>文档</rdfs:label>
+    <rdfs:comment>待切分的原始文档</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#Chunk">
+    <rdfs:label>切片</rdfs:label>
+    <rdfs:comment>切分后的最小检索单元</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#ChunkingStrategy">
+    <rdfs:label>切分策略</rdfs:label>
+  </owl:Class>
+
+  <!-- 实体层 -->
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#Entity">
+    <rdfs:label>实体</rdfs:label>
+    <rdfs:comment>从文档中提取的知识实体</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#Relationship">
+    <rdfs:label>关系</rdfs:label>
+    <rdfs:comment>实体间的语义关系</rdfs:comment>
+  </owl:Class>
+
+  <!-- 示例业务领域类 —— 替换为你的领域 -->
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#Product">
+    <rdfs:label>产品</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://feynman-ai.example/ontology/chunking#Entity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#Component">
+    <rdfs:label>组件</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://feynman-ai.example/ontology/chunking#Entity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#Specification">
+    <rdfs:label>规格参数</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://feynman-ai.example/ontology/chunking#Entity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://feynman-ai.example/ontology/chunking#Process">
+    <rdfs:label>流程步骤</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://feynman-ai.example/ontology/chunking#Entity"/>
+  </owl:Class>
+
+  <!-- ========== Object Properties ========== -->
+
+  <owl:ObjectProperty rdf:about="http://feynman-ai.example/ontology/chunking#hasChunk">
+    <rdfs:label>包含切片</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#Document"/>
+    <rdfs:range rdf:resource="http://feynman-ai.example/ontology/chunking#Chunk"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://feynman-ai.example/ontology/chunking#mentionsEntity">
+    <rdfs:label>提及实体</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#Chunk"/>
+    <rdfs:range rdf:resource="http://feynman-ai.example/ontology/chunking#Entity"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://feynman-ai.example/ontology/chunking#hasRelationship">
+    <rdfs:label>具有关系</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#Entity"/>
+    <rdfs:range rdf:resource="http://feynman-ai.example/ontology/chunking#Relationship"/>
+  </owl:ObjectProperty>
+
+  <!-- 业务领域关系示例 -->
+  <owl:ObjectProperty rdf:about="http://feynman-ai.example/ontology/chunking#hasComponent">
+    <rdfs:label>包含组件</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#Product"/>
+    <rdfs:range rdf:resource="http://feynman-ai.example/ontology/chunking#Component"/>
+    <rdfs:subPropertyOf rdf:resource="http://feynman-ai.example/ontology/chunking#hasRelationship"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://feynman-ai.example/ontology/chunking#hasSpec">
+    <rdfs:label>具有规格</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#Component"/>
+    <rdfs:range rdf:resource="http://feynman-ai.example/ontology/chunking#Specification"/>
+    <rdfs:subPropertyOf rdf:resource="http://feynman-ai.example/ontology/chunking#hasRelationship"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://feynman-ai.example/ontology/chunking#followsProcess">
+    <rdfs:label>遵循流程</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#Product"/>
+    <rdfs:range rdf:resource="http://feynman-ai.example/ontology/chunking#Process"/>
+    <rdfs:subPropertyOf rdf:resource="http://feynman-ai.example/ontology/chunking#hasRelationship"/>
+  </owl:ObjectProperty>
+
+  <!-- ========== Data Properties ========== -->
+
+  <owl:DatatypeProperty rdf:about="http://feynman-ai.example/ontology/chunking#chunkText">
+    <rdfs:label>切片文本</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#Chunk"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://feynman-ai.example/ontology/chunking#chunkIndex">
+    <rdfs:label>切片序号</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#Chunk"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://feynman-ai.example/ontology/chunking#strategyName">
+    <rdfs:label>策略名称</rdfs:label>
+    <rdfs:domain rdf:resource="http://feynman-ai.example/ontology/chunking#ChunkingStrategy"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+</rdf:RDF>
