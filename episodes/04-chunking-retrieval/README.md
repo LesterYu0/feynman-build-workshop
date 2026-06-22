@@ -2,6 +2,8 @@
 
 > 帮你选对RAG的知识切法
 
+📺 [B站视频](https://www.bilibili.com/video/BV1iCLR6xExi/) | ⏱ 8:57 | 📅 2026-06-17
+
 ## 核心结论
 
 **切分策略选错比换模型差距还大**——同一个embedding模型，6种切分策略recall差距41分（67%→91%）。更致命的是，LLM自由抽取的知识图谱关系有30%是幻觉——本体(Ontology)约束是终极解法。
@@ -47,3 +49,5 @@
 | `chunk-config-cheatsheet.md` | 文档类型→切分策略速查表 |
 | `eval-toolkit-minimal.py` | 100条query+recall@k自动化评测脚本 |
 | `ontology-template.owl` | 基础OWL本体模板（可直接改领域名使用） |
+
+有问题？去 [B站视频评论区](https://www.bilibili.com/video/BV1iCLR6xExi/) 聊
