@@ -16,6 +16,7 @@
 | 04 | [文件切分与召回：6种切法×3层架构实测](./episodes/04-chunking-retrieval/) | 5 份 | [B站](https://www.bilibili.com/video/BV1iCLR6xExi/) | 2026-06-17 |
 | 05 | [Rerank + 置信度校准](./episodes/05-rerank-calibration/) | 2 份 | [B站](https://www.bilibili.com/video/BV1xxx/) | 2026-06-19 |
 | 06 | [Agent Loop：50行代码×4控制点×1套Harness](./episodes/06-agent-loop/) | 3 份 | [B站](https://www.bilibili.com/video/BV1xxx/) | 2026-06-30 |
+| 07 | [Agent 记忆不是存储，是技能](./episodes/07-agent-memory-as-skill/) | 3 份 | [B站](https://www.bilibili.com/video/BV1xxx/) | 2026-07-05 |
 
 ---
 
