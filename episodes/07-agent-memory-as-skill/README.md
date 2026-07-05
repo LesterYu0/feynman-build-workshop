@@ -2,7 +2,7 @@
 
 > 5 个信号诊断你的记忆系统 + 1 套 AutoMem 双循环优化框架
 
-📺 [B站视频](https://www.bilibili.com/video/BV1xxx/) | ⏱ 7:47 | 📅 2026-07-05
+📺 [B站视频](https://www.bilibili.com/video/BV1kSMM6nEhV/) | ⏱ 7:47 | 📅 2026-07-05
 
 ![封面](./cover.png)
 
