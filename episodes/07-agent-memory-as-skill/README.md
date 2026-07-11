@@ -4,8 +4,6 @@
 
 📺 [B站视频](https://www.bilibili.com/video/BV1kSMM6nEhV/) | ⏱ 7:47 | 📅 2026-07-05
 
-![封面](./cover.png)
-
 ## 核心结论
 
 **给 Agent 加记忆文件只是起点。让 Agent 学会管理记忆，才是从「能记」到「会用」的跨越。**
