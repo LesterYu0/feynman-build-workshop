@@ -17,6 +17,7 @@
 | 05 | [Rerank + 置信度校准](./episodes/05-rerank-calibration/) | 2 份 | [B站](https://www.bilibili.com/video/BV1kSMM6nEhV/) | 2026-06-19 |
 | 06 | [Agent Loop：50行代码×4控制点×1套Harness](./episodes/06-agent-loop/) | 3 份 | [B站](https://www.bilibili.com/video/BV1kSMM6nEhV/) | 2026-06-30 |
 | 07 | [Agent 记忆不是存储，是技能](./episodes/07-agent-memory-as-skill/) | 3 份 | [B站](https://www.bilibili.com/video/BV1kSMM6nEhV/) | 2026-07-05 |
+| 08 | [国产模型拼个团：100行手写多模型路由 Harness](./episodes/08-multi-model-harness/) | 4 份 | 即将发布 | 2026-07-11 |
 
 ---
 
