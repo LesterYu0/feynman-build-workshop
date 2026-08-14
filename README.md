@@ -20,7 +20,7 @@
 | 08 | [国产模型拼个团：100行手写多模型路由 Harness](./episodes/08-multi-model-harness/) | 3 份 | [B站](https://www.bilibili.com/video/BV1CeN46aEUn/) | 2026-07-11 |
 | 09 | [6 杠杆造出生产级 Plan 模式](./episodes/09-plan-mode/) | 7 份 | [B站](https://www.bilibili.com/video/BV1veKw6JEof/) | 2026-07-16 |
 | 10 | [代码知识图谱：给 AI 编程助手装个「代码地图」](./episodes/10-code-graph/) | 4 份 | [B站](https://www.bilibili.com/video/BV1hVMR6hE6g/) | 2026-07-23 |
-| 11 | [DeepSeek Harness：69K Star 的 Agent 引擎开源了](./episodes/11-deepseek-harness/) | 5 份 | 待发布 | 2026-08-14 |
+| 11 | [DeepSeek Harness：70K Star 的 Agent 引擎开源了](./episodes/11-deepseek-harness/) | 5 份 | 待发布 | 2026-08-14 |
 
 ---
 
