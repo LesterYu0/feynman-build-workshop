@@ -11,15 +11,15 @@
 | # | 主题 | 资产数 | 视频 | 发布日期 |
 |---|------|:---:|------|:---:|
 | 01 | [Agent 记忆系统](./episodes/01-agent-memory-system/) | 4 份 | [B站](https://www.bilibili.com/video/BV1uiEM6xE9s/) | 2026-06-08 |
-| 02 | [意图识别：从 if-else 到生产级](./episodes/02-intent-recognition/) | 4 份 | [B站](https://www.bilibili.com/video/BV1xx411c7mD/) | 2026-06-11 |
-| 03 | [7层 Pipeline 打通多源文档解析](./episodes/03-doc-parse-pipeline/) | 4 份 | [B站](https://www.bilibili.com/video/BV1xx411c7mD/) | 2026-06-12 |
+| 02 | [意图识别：从 if-else 到生产级](./episodes/02-intent-recognition/) | 4 份 | [B站](https://www.bilibili.com/video/BV1McEk6EEdY/) | 2026-06-11 |
+| 03 | [7层 Pipeline 打通多源文档解析](./episodes/03-doc-parse-pipeline/) | 4 份 | [B站](https://www.bilibili.com/video/BV1GbJG66EKt/) | 2026-06-12 |
 | 04 | [文件切分与召回：6种切法×3层架构实测](./episodes/04-chunking-retrieval/) | 5 份 | [B站](https://www.bilibili.com/video/BV1iCLR6xExi/) | 2026-06-17 |
-| 05 | [Rerank + 置信度校准](./episodes/05-rerank-calibration/) | 2 份 | [B站](https://www.bilibili.com/video/BV1kSMM6nEhV/) | 2026-06-19 |
-| 06 | [Agent Loop：50行代码×4控制点×1套Harness](./episodes/06-agent-loop/) | 3 份 | [B站](https://www.bilibili.com/video/BV1kSMM6nEhV/) | 2026-06-30 |
+| 05 | [Rerank + 置信度校准](./episodes/05-rerank-calibration/) | 2 份 | [B站](https://www.bilibili.com/video/BV1WXjX6vEtd/) | 2026-06-19 |
+| 06 | [Agent Loop：50行代码×4控制点×1套Harness](./episodes/06-agent-loop/) | 3 份 | [B站](https://www.bilibili.com/video/BV1LZKZ63ELr/) | 2026-06-30 |
 | 07 | [Agent 记忆不是存储，是技能](./episodes/07-agent-memory-as-skill/) | 3 份 | [B站](https://www.bilibili.com/video/BV1kSMM6nEhV/) | 2026-07-05 |
-| 08 | [国产模型拼个团：100行手写多模型路由 Harness](./episodes/08-multi-model-harness/) | 3 份 | 即将发布 | 2026-07-11 |
-| 09 | [6 杠杆造出生产级 Plan 模式](./episodes/09-plan-mode/) | 7 份 | 待发布 | 2026-07-16 |
-| 10 | [代码知识图谱：给 AI 编程助手装个「代码地图」](./episodes/10-code-graph/) | 4 份 | 待发布 | 2026-07-23 |
+| 08 | [国产模型拼个团：100行手写多模型路由 Harness](./episodes/08-multi-model-harness/) | 3 份 | [B站](https://www.bilibili.com/video/BV1CeN46aEUn/) | 2026-07-11 |
+| 09 | [6 杠杆造出生产级 Plan 模式](./episodes/09-plan-mode/) | 7 份 | [B站](https://www.bilibili.com/video/BV1veKw6JEof/) | 2026-07-16 |
+| 10 | [代码知识图谱：给 AI 编程助手装个「代码地图」](./episodes/10-code-graph/) | 4 份 | [B站](https://www.bilibili.com/video/BV1hVMR6hE6g/) | 2026-07-23 |
 | 11 | [DeepSeek Harness：自家跑第一的 Agent 引擎开源了](./episodes/11-deepseek-harness/) | 5 份 | 待发布 | 2026-08-14 |
 
 ---
